@@ -21,7 +21,6 @@ function carregarInfoUsuario(){
         // vou ter que converter de STRING para Objeto
         var user = JSON.parse(userSTR);
 
-        console.log(user.linkFoto);
         document.getElementById("fotoUSER").innerHTML = templateFoto.replace("{{LINKFOTO}}",user.linkFoto);
 
         var infoUser = templateInfo.replace("{{NOME}}", user.nome)
@@ -59,5 +58,24 @@ function preencheComboBox(listaAgencias){
     }
     var novoSelect = templateSelect.replace("{{OPCOES}}", opcoes);
     document.getElementById("optionAgencia").innerHTML = novoSelect;
-    console.log(novoSelect);
+}
+
+function gerarRelatorio(){
+    // para saber se tá todo mundo "checado"
+    var combinacao = 0;
+    if (document.getElementById("selectAgencia").checked){
+        combinacao = combinacao + 1;
+    } 
+    if (document.getElementById("selectData").checked){
+        combinacao = combinacao + 2;
+    } 
+    if (document.getElementById("selectCliente").checked){
+        combinacao = combinacao + 4;
+    } 
+    console.log("Combinacao = "+combinacao);
+   
+    var op = document.getElementById("selectAg");
+    console.log(op.options[op.selectedIndex].value);
+    console.log(document.getElementById("txtData").value);
+    console.log(document.getElementById("txtCliente").value);
 }
