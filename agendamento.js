@@ -2,7 +2,6 @@ var listaDeAgencias;
 var pos=0;
 
 function carregarAgencias(){
-
     fetch("http://localhost:8088/agencias")
        .then(res => res.json())
        .then(lista => preencheAgencias(lista));

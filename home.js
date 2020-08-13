@@ -84,4 +84,34 @@ function gerarRelatorio(){
     console.log(op.options[op.selectedIndex].value);
     console.log(document.getElementById("txtData").value);
     console.log(document.getElementById("txtCliente").value);
+
+    var url = "http://localhost:8088/agendamentos/todos";
+    fetch(url)
+       .then(res => res.json())
+       .then(res => preencheRelatorio(res));
+}
+
+function preencheRelatorio(res){
+    var templateLinha = `<div class="row">
+                <div class="col-1"> {{PROTO}} </div>
+                <div class="col-2"> {{CLI}} </div>
+                <div class="col-2"> {{EMAIL}} </div>
+                <div class="col-2"> {{CEL}} </div>
+                <div class="col-1"> {{AG}} </div>
+                <div class="col-2"> {{DATAHORA}} </div>
+                <div class="col-2"> {{OBS}} </div>
+       </div>`;
+
+       var rel = "";
+       for (i=0;i<res.length; i++){
+           var ag = res[i];
+           rel += templateLinha.replace("{{PROTO}}", ag.numSeq)
+                               .replace("{{CLI}}", ag.nomeCliente)
+                               .replace("{{EMAIL}}", ag.emailCliente)
+                               .replace("{{CEL}}", ag.celularCliente)
+                               .replace("{{AG}}", ag.agencia.nome)
+                               .replace("{{DATAHORA}}", ag.dataAgendamento+"-"+ag.horaAgendamento)
+                               .replace("{{OBS}}", ag.observacoes);
+       }
+       document.getElementById("relatorio").innerHTML = rel;
 }
