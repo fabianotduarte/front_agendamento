@@ -85,7 +85,34 @@ function gerarRelatorio(){
     console.log(document.getElementById("txtData").value);
     console.log(document.getElementById("txtCliente").value);
 
-    var url = "http://localhost:8088/agendamentos/todos";
+    var url = "http://localhost:8088/agendamentos";
+    // preciso complementar todas as URL 
+    if (combinacao == 0){
+        url = url + "/todos";
+    }
+    else if (combinacao == 1){
+        url = url + "/filtrarporagencia?agencia="+op.options[op.selectedIndex].value;
+    }
+    else if (combinacao == 2){
+        
+    }
+    else if (combinacao == 3){
+
+    }
+    else if (combinacao == 4){
+        
+    }
+    else if (combinacao == 5){
+        
+    }
+    else if (combinacao == 6){
+        
+    }
+    else if (combinacao == 7){
+        
+    }
+    
+
     fetch(url)
        .then(res => res.json())
        .then(res => preencheRelatorio(res));
