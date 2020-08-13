@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="agendamento.css">
+        <script type="text/javascript" src="agendamento.js"></script>
+
+    </head>
+
+    <body onload="carregarAgencias()">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3> Agende seu Horario conosco</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="txtNome">Seu Nome</label>
+                        <input type="text" class="form-control" id="txtNome" maxlength="100" required>
+                      </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="txtEmail">Seu Email</label>
+                        <input type="email" class="form-control" id="txtEmail" maxlength="100">
+                      </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="txtCelular">Seu Celular/Whastapp</label>
+                        <input type="phone" class="form-control" id="txtCelular" maxlength="20">
+                      </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="txtData">Data do Agendamento</label>
+                        <input type="date" class="form-control" id="txtData">
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="optionAgencia">Selecione sua Agencia</label>
+                        <div id="optionAgencia"> **DADOS DAS AGENCIAS - Carregando ***</div>
+                      </div>
+                    
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="horaInicio">Horario do Agendamento</label>
+                        <div id="horaInicio"> HH:MM Inicio </div>
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="txtHora">Término Previsto</label>
+                        <input type="time" id="txtHoraFim" value="HH:mm" class="form-control" readonly>
+                      </div>
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="txtObs">Alguma Observacao?</label>
+                        <input type="text" class="form-control" id="txtObs" maxlength="255">
+                      </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <button type="button" class="btn btn-primary" onclick="enviarDados()">Enviar Dados</button>
+                </div>
+            </div>
+
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
+</html>
