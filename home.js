@@ -91,7 +91,7 @@ function gerarRelatorio(){
         url = url + "/todos";
     }
     else if (combinacao == 1){
-        url = url + "/filtrarporagencia?agencia="+op.options[op.selectedIndex].value;
+        url = url + "/filtrarporagencia?agencia="+document.getElementById("selectAg").value;
     }
     else if (combinacao == 2){
         
@@ -111,7 +111,7 @@ function gerarRelatorio(){
     else if (combinacao == 7){
         
     }
-    
+
 
     fetch(url)
        .then(res => res.json())
@@ -141,4 +141,9 @@ function preencheRelatorio(res){
                                .replace("{{OBS}}", ag.observacoes);
        }
        document.getElementById("relatorio").innerHTML = rel;
+}
+
+function logout(){
+    localStorage.removeItem("ScheduleUSER");
+    window.location = "index.html";
 }
